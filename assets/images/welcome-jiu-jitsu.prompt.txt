@@ -1,0 +1,4 @@
+Generated with the built-in image_gen tool.
+
+Final prompt:
+Use case: illustration-story. Asset: portrait artwork for the upper half of a Brazilian jiu-jitsu mobile app welcome screen. Create a beautiful cinematic editorial illustration of two adult Brazilian jiu-jitsu practitioners grappling on a dark mat, one in a textured ivory gi and the other in a deep blue gi, realistic and anatomically coherent seated open guard engagement with sleeve and lapel grips. Charcoal ink and painterly grain, premium sports magazine cover feel, confident brushwork, softly lit fabric, restrained electric blue accents. Vertical 2:3 composition, figures centered in the middle 60 percent with generous dark negative space above, lower quarter fades naturally to a uniform near-black #0B1018 to blend with the app background. Dark dojo background without distracting details. No text, no lettering, no logos, no borders, no watermark. Render artwork only, no UI.

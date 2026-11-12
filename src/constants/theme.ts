@@ -14,6 +14,14 @@ export const Colors = {
     backgroundElement: '#F0F0F3',
     backgroundSelected: '#E0E1E6',
     textSecondary: '#60646C',
+    primary: '#208AEF',
+    onPrimary: '#ffffff',
+    border: '#E0E1E6',
+    danger: '#D93036',
+    /** Fundo de telas com listas agrupadas (configurações). */
+    groupedBackground: '#F2F2F7',
+    /** Cartões sobre `groupedBackground`. */
+    card: '#FFFFFF',
   },
   dark: {
     text: '#ffffff',
@@ -21,6 +29,12 @@ export const Colors = {
     backgroundElement: '#212225',
     backgroundSelected: '#2E3135',
     textSecondary: '#B0B4BA',
+    primary: '#3D9CF5',
+    onPrimary: '#ffffff',
+    border: '#2E3135',
+    danger: '#FF6369',
+    groupedBackground: '#000000',
+    card: '#1C1C1E',
   },
 } as const;
 
@@ -61,5 +75,7 @@ export const Spacing = {
   six: 64,
 } as const;
 
-export const BottomTabInset = Platform.select({ ios: 50, android: 80 }) ?? 0;
 export const MaxContentWidth = 800;
+
+/** Cor de fundo da splash (mesma do plugin expo-splash-screen em app.json). */
+export const SplashBackground = '#208AEF';

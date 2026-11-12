@@ -1,21 +1,23 @@
-import { useEffect, useState } from 'react';
-import { useColorScheme as useRNColorScheme } from 'react-native';
+import { useSyncExternalStore } from "react";
+import { useColorScheme as useRNColorScheme } from "react-native";
+
+import { usePreferences } from "@/stores/preferences";
+
+const subscribe = () => () => {};
 
 /**
- * To support static rendering, this value needs to be re-calculated on the client side for web
+ * Na web o tema é recalculado no cliente (renderização estática) e respeita
+ * a preferência salva, já que `Appearance.setColorScheme` não existe aqui.
  */
 export function useColorScheme() {
-  const [hasHydrated, setHasHydrated] = useState(false);
+  const hasHydrated = useSyncExternalStore(
+    subscribe,
+    () => true,
+    () => false,
+  );
+  const systemScheme = useRNColorScheme();
+  const preference = usePreferences((s) => s.colorScheme);
 
-  useEffect(() => {
-    setHasHydrated(true);
-  }, []);
-
-  const colorScheme = useRNColorScheme();
-
-  if (hasHydrated) {
-    return colorScheme;
-  }
-
-  return 'light';
+  if (!hasHydrated) return "light";
+  return preference === "system" ? systemScheme : preference;
 }

@@ -3,12 +3,20 @@
     "name": "app-mobile",
     "slug": "app-mobile",
     "version": "1.0.0",
-    "orientation": "portrait",
+    "orientation": "default",
     "icon": "./assets/images/icon.png",
     "scheme": "appmobile",
     "userInterfaceStyle": "automatic",
     "ios": {
-      "icon": "./assets/expo.icon"
+      "icon": "./assets/expo.icon",
+      "usesAppleSignIn": true,
+      "bundleIdentifier": "com.appmobile.app",
+      "infoPlist": {
+        "CFBundleLocalizations": [
+          "pt",
+          "en"
+        ]
+      }
     },
     "android": {
       "adaptiveIcon": {
@@ -17,7 +25,8 @@
         "backgroundImage": "./assets/images/android-icon-background.png",
         "monochromeImage": "./assets/images/android-icon-monochrome.png"
       },
-      "predictiveBackGestureEnabled": false
+      "predictiveBackGestureEnabled": false,
+      "package": "com.appmobile.app"
     },
     "web": {
       "output": "server",
@@ -32,11 +41,62 @@
           "image": "./assets/images/splash-icon.png",
           "imageWidth": 76
         }
+      ],
+      "expo-sqlite",
+      "expo-apple-authentication",
+      [
+        "@sentry/react-native/expo",
+        {
+          "url": "https://sentry.io/",
+          "note": "Use SENTRY_AUTH_TOKEN, SENTRY_ORG e SENTRY_PROJECT via variáveis de ambiente."
+        }
+      ],
+      [
+        "expo-localization",
+        {
+          "supportedLocales": [
+            "pt",
+            "en"
+          ]
+        }
+      ],
+      [
+        "expo-video",
+        {
+          "supportsBackgroundPlayback": true,
+          "supportsPictureInPicture": true
+        }
+      ],
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "Permita o acesso às suas fotos para escolher a foto do seu perfil e enviar imagens no chat.",
+          "cameraPermission": "Permita o acesso à câmera para tirar a foto do seu perfil.",
+          "microphonePermission": false
+        }
+      ],
+      [
+        "expo-notifications",
+        {
+          "color": "#208AEF",
+          "defaultChannel": "chat"
+        }
       ]
     ],
     "experiments": {
       "typedRoutes": true,
       "reactCompiler": true
-    }
+    },
+    "extra": {
+      "router": {
+        "asyncRoutes": {
+          "web": true
+        }
+      },
+      "eas": {
+        "projectId": "92f838c3-cf0b-43a9-87d0-579688691b42"
+      }
+    },
+    "owner": "ruanvictow"
   }
 }
